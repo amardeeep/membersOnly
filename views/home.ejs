@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <%if(user){%>
+    <div>Welcome Back !</div>
+    <div><%=user%></div>
+    <div class="messages">
+      <ul>
+        <%for(let message of messages){%>
+        <li><%=message%></li>
+        <%}%>
+      </ul>
+    </div>
+    <%}else{%>
+    <a href="login">Login</a>
+    <a href="signup">Signup</a>
+    <%}%>
+  </body>
+</html>
