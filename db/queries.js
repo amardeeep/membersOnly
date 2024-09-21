@@ -7,8 +7,14 @@ const insertUser = async (username, first, last, password) => {
     [username, first, last, password]
   );
 };
-const readUsers = async (req, res) => {
+const readUsers = async () => {
   const { rows } = await pool.query(`select * from users`);
   return rows;
 };
-module.exports = { insertUser, readUsers };
+const readUser = async (username) => {
+  const { rows } = await pool.query(`select * from users where username = $1`, [
+    username,
+  ]);
+  return rows;
+};
+module.exports = { insertUser, readUsers, readUser };
