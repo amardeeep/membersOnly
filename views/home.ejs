@@ -19,6 +19,13 @@
     <%}else{%>
     <a href="login">Login</a>
     <a href="signup">Signup</a>
-    <%}%>
+    <%for(let user of users){%>
+    <ul>
+      <ul>
+        <li><%=user.username%></li>
+        <li><%=user.firstname%> <%=user.lastname%></li>
+      </ul>
+    </ul>
+    <%}%> <%}%>
   </body>
 </html>
