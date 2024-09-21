@@ -10,6 +10,7 @@ const queries = require("./db/queries");
 //import controllers
 const signupcontroller = require("./controllers/signUpController");
 const homeRouter = require("./routes/homeRouter");
+const pool = require("./db/pool");
 //set up app
 const app = express();
 app.use(express.urlencoded({ extended: false }));
@@ -19,18 +20,41 @@ app.set("view engine", "ejs");
 //create strategy
 passport.use(
   new LocalStrategy(async (username, password, done) => {
-    const rows = await queries.readUser(username);
-    const user = rows[0];
-    if (!user) {
-      return done(null, false, { message: "Incorrect Username" });
+    try {
+      const { rows } = await pool.query(
+        `select * from users where username = $1`,
+        [username]
+      );
+      const user = rows[0];
+      if (!user) {
+        return done(null, false, { message: "Incorrect Username" });
+      }
+      const match = await bcrypt.compare(password, user.password);
+      if (!match) {
+        return done(null, false, { message: "Incorrect Password" });
+      }
+      return done(null, user);
+    } catch (error) {
+      return done(error);
     }
-    const match = await bcrypt.compare(password, user.password);
-    if (!match) {
-      return done(null, false, { message: "Incorrect Password" });
-    }
-    return done(null, user);
   })
 );
+//serialize user
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+//deserialize user
+passport.deserializeUser(async (id, done) => {
+  try {
+    const { rows } = await pool.query(`select * from users where id = $1`, [
+      id,
+    ]);
+    const user = rows[0];
+    done(null, user);
+  } catch (error) {
+    done(error);
+  }
+});
 //create session
 app.use(session({ secret: "Cats", resave: false, saveUninitialized: false }));
 app.use(passport.session());
@@ -38,6 +62,21 @@ app.use(passport.session());
 app.use("/", homeRouter);
 app.get("/login", (req, res) => {
   res.render("login", { title: "Login!" });
+});
+app.post(
+  "/login",
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/",
+  })
+);
+app.get("/logout", (req, res, next) => {
+  req.logOut((err) => {
+    if (err) {
+      return next(err);
+    }
+    res.redirect("/");
+  });
 });
 app.get("/signup", (req, res) => {
   res.render("signup", { title: "Signup!" });

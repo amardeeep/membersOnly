@@ -8,14 +8,9 @@
   <body>
     <%if(user){%>
     <div>Welcome Back !</div>
-    <div><%=user%></div>
-    <div class="messages">
-      <ul>
-        <%for(let message of messages){%>
-        <li><%=message%></li>
-        <%}%>
-      </ul>
-    </div>
+    <div><%=user.firstname%></div>
+    <a href="/logout">Log Out</a>
+
     <%}else{%>
     <a href="login">Login</a>
     <a href="signup">Signup</a>
