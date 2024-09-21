@@ -1,26 +1,19 @@
-/*
-const asyncHandler = require("express-async-handler");
+const bcrypt = require("bcryptjs");
 const { body, validationResult } = require("express-validator");
 const queries = require("../db/queries");
 const emptyErr = "Can not be empty.";
 const alphaErr = "Should only have alphabets.";
-const emailErr = "Must Be A valid E-Mail";
+
 const passwordErr =
   "is weak. Should atleast be 8 characters long and must have 1 number, 1 symbol, 1 Uppercase letter and 1 Lowercase letter";
 const confirmPassowrdErr = "does not match password.";
 const validateUser = [
-  body("username")
+  body("username").trim().not().isEmpty().withMessage(`Username ${emptyErr}`),
+  body("firstname")
     .trim()
     .not()
     .isEmpty()
-    .withMessage(`Username ${emptyErr}`)
-    .isEmail()
-    .withMessage(`Username ${emailErr}`),
-  body("fistname")
-    .trim()
-    .not()
-    .isEmpty()
-    .withMessage(`First Name ${emailErr}`)
+    .withMessage(`First Name ${emptyErr}`)
     .isAlpha()
     .withMessage(`First Name ${alphaErr}`),
   body(`lastname`)
@@ -56,17 +49,20 @@ const createUser = [
     }
     const { username, firstname, lastname, password } = req.body;
     bcrypt.hash(password, 10, async (err, hashedPassword) => {
-      await queries.insertUser(username, hashedPassword, firstname, lastname);
+      console.log("inside bcrypt");
+      await queries.insertUser(username, firstname, lastname, hashedPassword);
     });
 
     res.redirect("/");
   },
-]; */
+];
+/* 
 const queries = require("../db/queries");
 const createUser = async (req, res) => {
   console.log(req.body);
   const { username, firstname, lastname, password } = req.body;
   await queries.insertUser(username, password, firstname, lastname);
   res.redirect("/");
-};
+};*/
+
 module.exports = { createUser };
