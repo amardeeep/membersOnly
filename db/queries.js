@@ -17,6 +17,13 @@ const readUser = async (username) => {
   ]);
   return rows;
 };
+const readUserById = async (user_id) => {
+  const { rows } = await pool.query(
+    `select username from users where id = $1`,
+    [user_id]
+  );
+  return rows;
+};
 const readMessages = async () => {
   try {
     const { rows } = await pool.query(`select * from messages ;`);
@@ -49,4 +56,5 @@ module.exports = {
   readMessages,
   insertMessage,
   updateIsMember,
+  readUserById,
 };
