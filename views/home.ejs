@@ -10,7 +10,7 @@
     <div>Welcome Back !</div>
     <div><%=user.firstname%></div>
     <a href="newMessage">Create A new Message !</a>
-    <%if(!user.isMember){%>
+    <%if(!user.ismember){%>
     <p>Become a member by clicking <a href="becomeMember">here</a>.</p>
     <%if(messages){%>
     <div>
@@ -20,7 +20,7 @@
         <%}%>
       </ul>
     </div>
-    <%}%> <%}%> <%if(user.isMember){%> <%if(messages){%>
+    <%}%> <%}%> <%if(user.ismember){%> <%if(messages){%>
     <div>
       <ul>
         <%for(let message of messages){%>

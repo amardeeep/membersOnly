@@ -35,10 +35,18 @@ const insertMessage = async (message, id) => {
     console.error(err);
   }
 };
+const updateIsMember = async (user_id) => {
+  try {
+    await pool.query(` update users set isMember=true where id=$1;`, [user_id]);
+  } catch (err) {
+    console.error(err);
+  }
+};
 module.exports = {
   insertUser,
   readUsers,
   readUser,
   readMessages,
   insertMessage,
+  updateIsMember,
 };

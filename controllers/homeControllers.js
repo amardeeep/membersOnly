@@ -9,4 +9,17 @@ const postNewMessage = async (req, res) => {
     console.error(err);
   }
 };
-module.exports = { postNewMessage };
+const postCode = async (req, res) => {
+  try {
+    const user_id = req.user.id;
+    const code = req.body.code;
+    const secret_code = "CODE";
+    if (code === secret_code) {
+      await queries.updateIsMember(user_id);
+    }
+    res.redirect("/");
+  } catch (err) {
+    console.error(err);
+  }
+};
+module.exports = { postNewMessage, postCode };
