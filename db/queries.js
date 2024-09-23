@@ -17,4 +17,28 @@ const readUser = async (username) => {
   ]);
   return rows;
 };
-module.exports = { insertUser, readUsers, readUser };
+const readMessages = async () => {
+  try {
+    const { rows } = await pool.query(`select * from messages ;`);
+    return rows;
+  } catch (err) {
+    console.error(err);
+  }
+};
+const insertMessage = async (message, id) => {
+  try {
+    await pool.query(`insert into messages (message,user_id) values($1,$2)`, [
+      message,
+      id,
+    ]);
+  } catch (err) {
+    console.error(err);
+  }
+};
+module.exports = {
+  insertUser,
+  readUsers,
+  readUser,
+  readMessages,
+  insertMessage,
+};

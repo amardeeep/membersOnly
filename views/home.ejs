@@ -6,11 +6,30 @@
     <title>Document</title>
   </head>
   <body>
-    <%if(user){%>
+    <%if(user){ console.log(user)%>
     <div>Welcome Back !</div>
     <div><%=user.firstname%></div>
+    <a href="newMessage">Create A new Message !</a>
+    <%if(!user.isMember){%>
+    <p>Become a member by clicking <a href="becomeMember">here</a>.</p>
+    <%if(messages){%>
+    <div>
+      <ul>
+        <%for(let message of messages){%>
+        <li><%=message.message%></li>
+        <%}%>
+      </ul>
+    </div>
+    <%}%> <%}%> <%if(user.isMember){%> <%if(messages){%>
+    <div>
+      <ul>
+        <%for(let message of messages){%>
+        <li><%=message.message%></li>
+        <%}%>
+      </ul>
+    </div>
+    <%}%> <%}%>
     <a href="/logout">Log Out</a>
-
     <%}else{%>
     <a href="login">Login</a>
     <a href="signup">Signup</a>
