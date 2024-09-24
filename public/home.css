@@ -1,0 +1,53 @@
+.navBar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+.links{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 20px;
+}
+.greetings{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+}
+.row1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+.linksGreetings{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+}
+.messages{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 25px;
+}
+.messageContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+}
+*{
+    margin: 0;
+}

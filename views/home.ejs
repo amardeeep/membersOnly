@@ -3,43 +3,50 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./home.css" />
     <title>Document</title>
   </head>
   <body>
-    <%if(user){ console.log(user)%>
-    <div>Welcome Back !</div>
-    <div><%=user.firstname%></div>
-    <a href="newMessage">Create A new Message !</a>
-    <%if(!user.ismember){%>
-    <p>Become a member by clicking <a href="becomeMember">here</a>.</p>
-    <%if(messages){%>
-    <div>
-      <ul>
+    <%if(user){ %>
+    <div class="greetings">
+      <div class="row1">
+        <h2>Welcome Back ! <%=user.firstname%></h2>
+        <div class="linksGreetings">
+          <a href="newMessage">Create A new Message !</a>
+          <a href="/logout">Log Out</a>
+        </div>
+      </div>
+      <div class="row2">
+        <%if(!user.ismember){%>
+        <h3>Become a member by clicking <a href="becomeMember">here</a>.</h3>
+        <%}%>
+      </div>
+    </div>
+    <div class="messages">
+      <%if(messages){%>
+      <ul class="message">
         <%for(let message of messages){%>
-        <li><%=message.message%></li>
+        <li>
+          <div class="messageContainer">
+            <%if(user.ismember){%>
+            <h3><%=message.author%> Says :</h3>
+            <%}else{%>
+            <h3>Anonymous Says :</h3>
+            <%}%>
+            <p><%=message.message%></p>
+          </div>
+        </li>
         <%}%>
       </ul>
+      <%}%>
     </div>
-    <%}%> <%}%> <%if(user.ismember){%> <%if(messages){%>
-    <div>
-      <ul>
-        <%for(let message of messages){%>
-        <li><%=message.message%> By : <%=message.author%></li>
-        <%}%>
-      </ul>
-    </div>
-    <%}%> <%}%>
-    <a href="/logout">Log Out</a>
     <%}else{%>
-    <a href="login">Login</a>
-    <a href="signup">Signup</a>
-    <%for(let user of users){%>
-    <ul>
-      <ul>
-        <li><%=user.username%></li>
-        <li><%=user.firstname%> <%=user.lastname%></li>
-      </ul>
-    </ul>
-    <%}%> <%}%>
+    <div class="navBar">
+      <h1>Room 124</h1>
+      <div class="links">
+        <a href="login">Login</a> <a href="signup">Signup</a>
+      </div>
+    </div>
+    <%}%>
   </body>
 </html>
