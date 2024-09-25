@@ -4,15 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="./login.css" />
   </head>
   <body>
-    <form action="login" method="post">
-      <legend>Login</legend>
-      <label for="username">Username :</label>
-      <input type="text" name="username" id="username" />
-      <label for="password">Password :</label>
-      <input type="password" name="password" id="password" />
-      <button type="submit">Login</button>
-    </form>
+    <div class="login">
+      <div class="img"></div>
+      <div class="form">
+        <form action="login" method="post">
+          <h1>Sign in to Room 124</h1>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="User Name"
+            class="loginElements"
+          />
+          <input
+            class="loginElements"
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Password"
+          />
+          <button type="submit" class="loginButton">Login</button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>

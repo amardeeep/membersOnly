@@ -1,0 +1,85 @@
+:root {
+    box-sizing: border-box;
+    --background-color:rgb(211, 205, 205);
+    --width-input-border:2px;
+    --padding-inputs:0.75em;
+    --padding-button:1em;
+    --radius-inputs:0.50em;
+    --radius-button:2em;
+    --width-input:20vw;
+    --width-button:10vw;
+    --background-color-button:rgb(36, 134, 36);
+    --color-button:white;
+    --border-color:white;
+    --background-color-button-hover:white;
+    --color-button-hover:black;
+    --border-color-hover:darkgreen;
+    --border-width-button:3px;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+input{
+    padding: var(--padding-inputs);
+    border: var(--width-input-border) solid;
+    border-radius: var(--radius-inputs);
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 40px;
+}
+*{
+    margin: 0;
+    background-color: var(--background-color);
+}
+.loginElements{
+    width: var(--width-input);
+}
+.loginButton{
+    width: var(--width-button);
+    border-radius: var(--radius-button);
+    padding: var(--padding-button);
+    background-color: var(--background-color-button);
+    color: var(--color-button);
+    border-color: var(--border-color);
+    border-width: var(--border-width-button);
+}
+.loginButton:hover{
+    background-color:var(--background-color-button-hover) ;
+    color: var(--color-button-hover);
+    border-color: var(--border-color-hover);
+}
+.login{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.img{
+    width: 50vw;
+    height: 100vh;
+    background-image: url(./photo_2024-09-24_15-30-03.jpg);
+    background-size: cover;
+    background-position: center;
+}
+h1{
+    padding: 20px;
+}
+button {
+    background: none;
+    outline: none;
+    box-shadow: none;
+}
