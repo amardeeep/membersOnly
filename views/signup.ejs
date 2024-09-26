@@ -3,29 +3,64 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./signup.css" />
     <title>Document</title>
   </head>
   <body>
-    <% if (locals.errors) {%>
-    <ul>
-      <% errors.forEach(function(error) { %>
-      <li><%= error.msg %></li>
-      <% }); %>
-    </ul>
-    <% } %>
-    <form action="signup" method="post">
-      <legend>Sign Up</legend>
-      <label for="firstname">First Name :</label>
-      <input type="text" name="firstname" id="firstname" />
-      <label for="lastname">Last Name :</label>
-      <input type="text" name="lastname" id="lastname" />
-      <label for="username">User Name( E-Mail ) :</label>
-      <input type="email" name="username" id="username" />
-      <label for="password">Password :</label>
-      <input type="password" name="password" id="password" />
-      <label for="cpassword">Confrim Password :</label>
-      <input type="password" name="cpassword" id="cpassword" />
-      <button type="submit">Sign Up</button>
-    </form>
+    <div class="signup">
+      <div class="img"></div>
+      <div class="form">
+        <% if (locals.errors) {%>
+        <ul class="error">
+          <h2>Invalid Details</h2>
+          <% errors.forEach(function(error) { %>
+          <li><%= error.msg %></li>
+          <% }); %>
+        </ul>
+        <% } %>
+        <form action="signup" method="post">
+          <h1>Create Your Account</h1>
+          <input
+            type="text"
+            name="firstname"
+            id="firstname"
+            class="signupElements"
+            placeholder="First Name "
+          />
+          <input
+            type="text"
+            name="lastname"
+            placeholder="Last Name"
+            id="lastname"
+            class="signupElements"
+          />
+
+          <input
+            type="email"
+            name="username"
+            id="username"
+            class="signupElements"
+            placeholder="User Name (E-Mail)"
+          />
+
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            id="password"
+            class="signupElements"
+          />
+
+          <input
+            type="password"
+            name="cpassword"
+            id="cpassword"
+            placeholder="Confirm Password"
+            class="signupElements"
+          />
+          <button type="submit" class="signupButton">Sign Up</button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>

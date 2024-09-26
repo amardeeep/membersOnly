@@ -1,6 +1,7 @@
 :root {
     box-sizing: border-box;
     font-family:Arial, Helvetica, sans-serif;
+    
     --background-color:rgb(211, 205, 205);
     --width-input-border:3px;
     --padding-inputs:0.75em;
@@ -19,6 +20,8 @@
     --background-color-input:white;
     --border-color-input-focus:blue;
     --border-color-input-hover:rgb(2, 2, 105);
+    --background-color-error:rgb(253, 79, 79);
+    --border-color-error:red;
   }
   
   *,
@@ -52,19 +55,19 @@ form{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 35px;
+    gap: 2em;
     padding: 40px;
 }
 *{
     margin: 0;
     background-color: var(--background-color);
 }
-.loginElements{
+.signupElements{
     width: var(--width-input);
     background-color: var(--background-color-input);
     box-shadow: 5px 5px 20px grey;
 }
-.loginButton{
+.signupButton{
     font-size: larger;
     width: var(--width-button);
     border-radius: var(--radius-button);
@@ -75,19 +78,19 @@ form{
     border-width: var(--border-width-button);
     
 }
-.loginButton:hover{
+.signupButton:hover{
     background-color:var(--background-color-button-hover) ;
     color: var(--color-button-hover);
     border-color: var(--border-color-hover);
 }
-.login{
+.signup{
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 .img{
     width: 45vw;
-    height: 100vh;
+    min-height: 100vh;
     background-image: url(./photo_2024-09-24_15-30-03.jpg);
     background-size: cover;
     background-position: center;
@@ -103,4 +106,20 @@ button {
     box-shadow: none;
     border:none;
     box-shadow: 5px 5px 20px green;
+}
+.error{
+    display: flex;
+    flex-direction: column;
+    background-color:var(--background-color-error) ;
+    border: 3px solid var(--border-color-error);
+    gap: 0.5em;
+    padding: 1em;
+}
+li{
+    list-style: none;
+    background-color:var(--background-color-error) ;
+}
+h2{
+    background-color: var(--background-color-error);
+    text-align: center;
 }
