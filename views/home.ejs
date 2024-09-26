@@ -14,12 +14,10 @@
         <div class="linksGreetings">
           <a href="newMessage">Create A new Message !</a>
           <a href="/logout">Log Out</a>
+          <%if(!user.ismember){%>
+          <a href="becomeMember">Become a member</a>
+          <%}%>
         </div>
-      </div>
-      <div class="row2">
-        <%if(!user.ismember){%>
-        <h3>Become a member by clicking <a href="becomeMember">here</a>.</h3>
-        <%}%>
       </div>
     </div>
     <div class="messages">

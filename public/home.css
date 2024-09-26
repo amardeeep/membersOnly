@@ -22,16 +22,16 @@
     --background-color-message:rgb(59, 154, 185);
     --border-color-mesage:blue;
     --color-span:darkblue;
-    
+        
 }
-.navBar{
+.nav{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: var(--padding);
 }
-.links{
+.linksNav{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -45,7 +45,7 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
-    height:var(--height-greetings);
+    min-height:var(--height-greetings);
     padding: var(--padding);
     background-color: var(--background-color-greetings);
 }
@@ -59,6 +59,7 @@
     color:var(--color-row1);
     font-size: larger;
 }
+
 .linksGreetings{
     display: flex;
     flex-direction: row;
