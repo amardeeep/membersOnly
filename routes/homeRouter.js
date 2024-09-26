@@ -6,7 +6,7 @@ homeRouter.get("/", async (req, res) => {
   const messages = await queries.readMessages();
   for (let message of messages) {
     const author = await queries.readUserById(message.user_id);
-    message.author = author[0].username;
+    message.author = author[0].firstname;
   }
   const users = await queries.readUsers();
   res.render("home", { user: req.user, users: users, messages: messages });

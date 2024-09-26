@@ -19,7 +19,7 @@ const readUser = async (username) => {
 };
 const readUserById = async (user_id) => {
   const { rows } = await pool.query(
-    `select username from users where id = $1`,
+    `select firstname from users where id = $1`,
     [user_id]
   );
   return rows;

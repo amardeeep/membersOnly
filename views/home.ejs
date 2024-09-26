@@ -10,7 +10,7 @@
     <%if(user){ %>
     <div class="greetings">
       <div class="row1">
-        <h2>Welcome Back ! <%=user.firstname%></h2>
+        <h2>Welcome Back ! <span><%=user.firstname%> </span></h2>
         <div class="linksGreetings">
           <a href="newMessage">Create A new Message !</a>
           <a href="/logout">Log Out</a>
@@ -29,9 +29,9 @@
         <li>
           <div class="messageContainer">
             <%if(user.ismember){%>
-            <h3><%=message.author%> Says :</h3>
+            <h3><span><%=message.author%></span> Says :</h3>
             <%}else{%>
-            <h3>Anonymous Says :</h3>
+            <h3>Anonymous User Says :</h3>
             <%}%>
             <p><%=message.message%></p>
           </div>
@@ -41,9 +41,9 @@
       <%}%>
     </div>
     <%}else{%>
-    <div class="navBar">
+    <div class="nav">
       <h1>Room 124</h1>
-      <div class="links">
+      <div class="linksNav">
         <a href="login">Login</a> <a href="signup">Signup</a>
       </div>
     </div>

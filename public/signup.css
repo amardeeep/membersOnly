@@ -20,7 +20,7 @@
     --background-color-input:white;
     --border-color-input-focus:blue;
     --border-color-input-hover:rgb(2, 2, 105);
-    --background-color-error:rgb(253, 79, 79);
+    --background-color-error:rgb(226, 106, 102);
     --border-color-error:red;
   }
   
@@ -112,6 +112,8 @@ button {
     flex-direction: column;
     background-color:var(--background-color-error) ;
     border: 3px solid var(--border-color-error);
+    
+    border-radius: 1em;
     gap: 0.5em;
     padding: 1em;
 }
