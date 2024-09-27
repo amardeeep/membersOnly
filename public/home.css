@@ -18,7 +18,7 @@
     --padding-links:1em;
     --width-message:50vw;
     --height-greetings:20vh;
-    --height-messages:80vh;
+    --height-messages:65vh;
     --background-color-message:rgb(59, 154, 185);
     --border-color-mesage:blue;
     --color-span:darkblue;
@@ -30,6 +30,7 @@
     justify-content: space-between;
     align-items: center;
     padding: var(--padding);
+    border-bottom: 4px solid black;
 }
 .linksNav{
     display: flex;
@@ -45,7 +46,7 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
-    min-height:var(--height-greetings);
+    height:var(--height-greetings);
     padding: var(--padding);
     background-color: var(--background-color-greetings);
 }
@@ -73,9 +74,10 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    padding-left: 25px;
+    padding:20px;
     justify-content: center;
     min-height: var(--height-messages);
+    overflow: auto;
 }
 .messageContainer{
     display: flex;
@@ -96,9 +98,8 @@ span{
     display: flex;
     flex-direction: column;
     justify-content: left;
-    height: var(--height-messages);
+    min-height: var(--height-messages);
     gap: 1.5em;
-    padding-top: 3em;
 }
 a{
     background-color: var(--background-color-links);
@@ -116,6 +117,20 @@ a:hover{
 }
 li{
     list-style: none;
-
+}
+.footer{
+    background-color: black;
+    color: white;
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+}
+body{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
 }
 

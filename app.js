@@ -63,13 +63,15 @@ app.use(passport.session());
 //Routes
 app.use("/", homeRouter);
 app.get("/login", (req, res) => {
-  res.render("login", { title: "Login!" });
+  const error = req.session.messages;
+  res.render("login", { title: "Login!", error: error });
 });
 app.post(
   "/login",
   passport.authenticate("local", {
     successRedirect: "/",
-    failureRedirect: "/",
+    failureRedirect: "/login",
+    failureMessage: true,
   })
 );
 app.get("/logout", (req, res, next) => {

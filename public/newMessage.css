@@ -26,6 +26,12 @@ body{
     width: 100vw;
     height: 100vh;
 }
+.buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+}
 form{
     background-color: var(--background-color-form);
     border: 3px solid var(--border-color-form);
@@ -47,6 +53,7 @@ input{
     border-radius: 1em;
     font-size: large;
     box-shadow: 5px 5px 20px black;
+    min-width: 20vw;
 }
 input:focus{
     box-shadow: 5px 5px 20px var(--inputshadow-color-focus);

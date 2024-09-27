@@ -19,6 +19,8 @@
     --background-color-input:white;
     --border-color-input-focus:blue;
     --border-color-input-hover:rgb(2, 2, 105);
+    --background-color-error:rgb(226, 106, 102);
+    --border-color-error:red;
   }
   
   *,
@@ -31,6 +33,20 @@ input{
     border: var(--width-input-border) solid;
     border-radius: var(--radius-inputs);
     font-size: large;
+}
+.error{
+    display: flex;
+    flex-direction: column;
+    background-color:var(--background-color-error) ;
+    border: 3px solid var(--border-color-error);
+    border-radius: 1em;
+    gap: 0.5em;
+    padding: 1em;
+    min-width:20vw ;
+}
+h2{
+    background-color: var(--background-color-error);
+    text-align: center;
 }
 input:focus{
     border-color: var(--border-color-input-focus);
