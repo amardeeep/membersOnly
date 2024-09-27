@@ -1,0 +1,75 @@
+:root{
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    --background-color-form:white;
+    --border-color-form:black;
+    --background-color-body:whitesmoke;
+    --color-form:black;
+    --padding-inputs:0.75em;
+    --input-border-color:black;
+    --border-color-input-focus:black;
+    --border-color-input-hover:rgb(66, 66, 66);
+    --border-color-button:black;
+    --bakcground-color-button:black;
+    --background-color-button-hover:white;
+    --color-button:white;
+    --color-button-hover:black;
+    --input-border-focus:darkblue;
+    --inputshadow-color-focus:darkblue;
+}
+body{
+    background-color: var(--background-color-body);
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+form{
+    background-color: var(--background-color-form);
+    border: 3px solid var(--border-color-form);
+    border-radius: 2em;
+    height: 45vh;
+    width: 45vw;
+    color:var(--color-form);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2em;
+    align-items: center;
+    box-shadow: 5px 5px 20px black;
+    font-size: 2em;
+}
+input{
+    padding: var(--padding-inputs);
+    border: 3px solid var(--input-border-color);
+    border-radius: 1em;
+    font-size: large;
+    box-shadow: 5px 5px 20px black;
+}
+input:focus{
+    box-shadow: 5px 5px 20px var(--inputshadow-color-focus);
+    border-color: var(--input-border-focus);
+    outline: none;
+}
+input:hover{
+    border-color:var(--input-border-focus);
+}
+button {
+    background-color: var(--bakcground-color-button);
+    color: var(--color-button);
+    outline: none;
+    width: 10vw;
+    padding: 1em;
+    box-shadow: none;
+    border-radius: 2em;
+    border:3px solid var(--border-color-button);
+    box-shadow: 5px 5px 20px black;
+    outline: none;
+    font-size: 0.5em;
+}
+button:hover{
+    background-color: var(--background-color-button-hover);
+    color: var(--color-button-hover);
+}
