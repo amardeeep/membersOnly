@@ -11,6 +11,7 @@ const queries = require("./db/queries");
 const signupcontroller = require("./controllers/signUpController");
 const homeRouter = require("./routes/homeRouter");
 const pool = require("./db/pool");
+require("dotenv").config();
 //set up app
 const app = express();
 app.use(express.urlencoded({ extended: false }));
@@ -86,4 +87,4 @@ app.get("/signup", (req, res) => {
   res.render("signup", { title: "Signup!" });
 });
 app.post("/signup", signupcontroller.createUser);
-app.listen(3000, console.log("Listening on port 3000"));
+app.listen(process.env.PORT, console.log("Listening on port 3000"));
